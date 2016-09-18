@@ -1,0 +1,36 @@
+input {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+  padding-top: 85px;
+  padding-bottom: 25px;
+  color: black;
+  font-style: bold;
+}
+
+label {
+  color: black;
+  font-style: bold; 
+}
+
+.container {
+  background-image: url("https://a0.muscache.com/locations/uploads/photo/image/42287/0_4200_0_2800_one_Revised_Neigborhoods_Tel-Aviv_Vaaknin_150813_0580_HR1.jpg");
+  /*background-image: url("https://pixabay.com/static/uploads/photo/2013/07/28/22/40/tel-aviv-168508_1280.jpg");*/
+  width: 100%;
+}
+
+.form-control {
+  margin-bottom: 25px;
+}
+
+#map {
+  margin-top: 30px;
+ /* width: 91.4%;*/
+  height: 600px;
+  background-color: grey;
+  margin-left: auto;
+  margin-right: auto;
+ }
+

@@ -1,0 +1,38 @@
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var Theft = require('./mongoose');
+
+mongoose.connect('mongodb://localhost/tlv');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false}));
+
+app.use(express.static('public'));
+app.use(express.static('node_modules'));
+
+app.post('/tlv', function(req, res) {
+  console.log('here is the name:', req.body.Item);
+  console.log(req.body.Location);
+  console.log(req.body.Value);
+  var theft = new Theft();
+  theft.Location = req.body.Location;
+  theft.Item = req.body.Item;
+  theft.Value = req.body.Value;
+
+  theft.save()
+
+  res.end();
+
+});
+
+app.get('/tlv', function(req, res) {
+  console.log('got to get');
+  Theft.find().exec(function(err, data) {
+    console.log('getting posts', data);
+    res.send(data);
+  })
+})
+
+app.listen(4000);

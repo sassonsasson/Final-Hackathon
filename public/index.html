@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html ng-app="city">
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+</head>
+<body ng-controller="cityCtrl">
+
+<nav class="navbar navbar-default">
+
+</nav>
+
+  <div class="container">
+    <div class="container1 col-md-4 col-md-offset-4">
+    <h2 class="title">Post details of a robbery</h2>
+
+      <form>
+        
+          <div class="form-group">
+            <input type="text" ng-model="name" placeholder="What's your name?" class="form-control">
+            <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
+            <input id="pac-input" class="controls form-control" type="text" placeholder="Location of robbery" id="location">
+              <div id="type-selector" class="controls">
+                <input type="radio" name="type" id="changetype-all" checked="checked">
+                <label for="changetype-all">All</label>
+
+                <input type="radio" name="type" id="changetype-establishment">
+                <label for="changetype-establishment">Establishments</label>
+
+                <input type="radio" name="type" id="changetype-address">
+                <label for="changetype-address">Addresses</label>
+
+                <input type="radio" name="type" id="changetype-geocode">
+                <label for="changetype-geocode">Geocodes</label>
+              </div>
+              <div align="center">  
+                <select ng-options="x for x in list" ng-model="item" class="form-control">
+                  <option class="item" value=''>- Select item stolen -</option>
+                </select>
+              </div>  
+            <input type="text" ng-model="value" placeholder="What is the ILS value?" class="form-control">
+              <div style="text-align:center;">
+                <button ng-click="submit()" class="submit">Submit</button>
+
+              </div>
+          </div>  
+        
+      </form>
+    </div>
+  </div>
+
+  <ul>
+    <li ng-repeat="x in data track by $index" ng-click="click">
+    {{x.Location}}
+      
+    </li>
+
+  </ul>
+
+  <div class="container">
+    <div id="map"></div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type="text/javascript">
+
+    $('.submit').on('click', function(e){
+      e.preventDefault();
+      alert($('#email').val())
+    })
+   
+  </script>
+  <script src="map.js"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBaeVQ5VnEhNnvrIJ8InOhq3n_vWWqQxI&libraries=places&callback=initMap" async defer></script> -->
+  <script src="../angular/angular.min.js"></script>
+  <script src="app.js"></script>
+  <script src="factory.js"></script>
+  <script src="directive.js"></script>
+  <script src="controller.js"></script>
+  
+
+</body>
+</html>
+
+
+
+
