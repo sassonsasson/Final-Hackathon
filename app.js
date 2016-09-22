@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Theft = require('./mongoose');
 
-mongoose.connect('mongodb://localhost/safe_location');
+mongoose.connect(process.env.MONGOLAB_BROWN_URI ||'mongodb://localhost/safe_location');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -40,4 +40,5 @@ app.get('/theft', function(req, res) {
   })
 })
 
-app.listen(4000);
+app.listen(process.env.PORT || '4000');
+
