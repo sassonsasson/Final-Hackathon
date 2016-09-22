@@ -11,6 +11,7 @@
 <body ng-controller="cityCtrl">
 
 <nav class="navbar navbar-default">
+  <h2 class="logo">SafeLocation</h2>
 
 </nav>
 
@@ -18,12 +19,13 @@
     <div class="container1 col-md-4 col-md-offset-4">
     <h2 class="title">Post details of a robbery</h2>
 
-      <form>
+      <form id="form">
         
           <div class="form-group">
-            <input type="text" ng-model="name" placeholder="What's your name?" class="form-control">
+            <input type="text" id="name" placeholder="What's your name?" class="form-control">
             <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
-            <input id="pac-input" class="controls form-control" type="text" placeholder="Location of robbery" id="location">
+            <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
+            <input id="pac-input" class="controls form-control" type="text" placeholder="What is the location of robbery?" id="location">
               <div id="type-selector" class="controls">
                 <input type="radio" name="type" id="changetype-all" checked="checked">
                 <label for="changetype-all">All</label>
@@ -39,13 +41,15 @@
               </div>
               <div align="center">  
                 <select ng-options="x for x in list" ng-model="item" class="form-control">
-                  <option class="item" value=''>- Select item stolen -</option>
+                  <option id="item" class="item" value=''>- Select item stolen -</option>
                 </select>
               </div>  
-            <input type="text" ng-model="value" placeholder="What is the ILS value?" class="form-control">
+            <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
               <div style="text-align:center;">
-                <button ng-click="submit()" class="submit">Submit</button>
-
+                <button type="submit" ng-click="submit()" class="submit-theft" onclick="this.form.reset();">Submit</button>
+                <button ng-click="retrieve()" id="retrieve-thefts">
+                  <a href="#list"> Retrieve Report</a>
+                </button>
               </div>
           </div>  
         
@@ -53,30 +57,64 @@
     </div>
   </div>
 
-  <ul>
-    <li ng-repeat="x in data track by $index" ng-click="click">
-    {{x.Location}}
-      
-    </li>
 
-  </ul>
-
+<!--   <div>
+    <ul style="list-style: none;">
+      <li ng-repeat="entry in data track by $index | orderBy:'Date':true">
+  
+        Date: {{entry.Date}} Location: {{entry.Location}} Item: {{entry.Item}} Value: {{entry.Value}}
+        
+      </li>
+    </ul>
+  </div>   -->
   <div class="container">
     <div id="map"></div>
   </div>
 
+  <a name="list"></a>
+
+    <section class="list">
+    <table class="table table-bordered">
+      <tr>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Item</th>
+        <th>Value</th>
+      </tr>
+        <tr ng-repeat="entry in data | orderBy: 'Date'">
+          <td>{{entry.Date}}</td>
+          <td>{{entry.Location}}</td>
+          <td>{{entry.Item}}</td>
+          <td>{{entry.Value}}</td>
+      </tr>
+      
+    </table>
+  </section>
+
+  <div class="container">
+    <div id="map1"></div>
+  </div>
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script type="text/javascript">
-
     $('.submit').on('click', function(e){
       e.preventDefault();
       alert($('#email').val())
     })
-   
   </script>
-  <script src="map.js"></script>
-  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBaeVQ5VnEhNnvrIJ8InOhq3n_vWWqQxI&libraries=places&callback=initMap" async defer></script> -->
+  
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://www.google.com/jsapi"></script>
+  <script src="../js-marker-clusterer/src/markerclusterer.js"></script>
+  <script src="../js-marker-clusterer/examples/data.json"></script>
+  <!-- <script src="../js-marker-clusterer/images/m2.png"></script> -->
+  <!-- <script src="https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m2.png"></script> -->
   <script src="../angular/angular.min.js"></script>
+  <!-- <script src="mapAll.js"></script>
+  <script src="map.js"></script>
+  <script src="maps.js"></script> -->
+  <script src="mapsFinal.js"></script>
   <script src="app.js"></script>
   <script src="factory.js"></script>
   <script src="directive.js"></script>

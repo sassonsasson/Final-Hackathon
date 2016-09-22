@@ -1,20 +1,24 @@
 app.factory('items', function ($http) {
 
-  var things = ["Bike", "Cash", "Computer", "Phone"];
+  var things = ["Bike", "Cash", "Computer", "Handbag", "Jewelry", "Phone", "Wallet"];
 
     var getPosts = function(){
 
-    return $http.get('/tlv')
+    return $http.get('/theft');
   
     }
 
-    var postList = function(info) {
+    // var postList = function(info) {
 
-    return $http.post('/tlv', info);
+    // return $http.post('/theft', info);
 
-    };
+    // };
 
-    return {things:things, postList:postList, getPosts:getPosts};
+    // console.log('im inside of the factory');
+
+
+
+    return {things:things, getPosts:getPosts};
 
 
 });

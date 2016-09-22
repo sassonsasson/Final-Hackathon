@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Theft = require('./mongoose');
 
-mongoose.connect('mongodb://localhost/tlv');
+mongoose.connect('mongodb://localhost/safe_location');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -12,14 +12,19 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 
-app.post('/tlv', function(req, res) {
+app.post('/theft', function(req, res) {
   console.log('here is the name:', req.body.Item);
   console.log(req.body.Location);
   console.log(req.body.Value);
   var theft = new Theft();
+  theft.Name = req.body.Name;
+  theft.Email = req.body.Email;
+  theft.Date = req.body.Date;
   theft.Location = req.body.Location;
   theft.Item = req.body.Item;
   theft.Value = req.body.Value;
+
+  // console.log('response from post db');
 
   theft.save()
 
@@ -27,7 +32,7 @@ app.post('/tlv', function(req, res) {
 
 });
 
-app.get('/tlv', function(req, res) {
+app.get('/theft', function(req, res) {
   console.log('got to get');
   Theft.find().exec(function(err, data) {
     console.log('getting posts', data);

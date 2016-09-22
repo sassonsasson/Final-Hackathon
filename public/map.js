@@ -1,5 +1,3 @@
-// // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBaeVQ5VnEhNnvrIJ8InOhq3n_vWWqQxI&libraries=places&callback=initMap" async defer>
-
 // $.ajax({
 //   url: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBBaeVQ5VnEhNnvrIJ8InOhq3n_vWWqQxI&libraries=places",
 //   dataType: "jsonp"
@@ -8,7 +6,8 @@
 //   initMap();
 // });
 
-// // var location = [];
+
+// var address = '';
 
 // var initMap = function () {
 //   var mapDiv = document.getElementById('map');
@@ -17,40 +16,31 @@
 //     zoom: 13
 //    });
 
-//   var input = document.getElementById('pac-input');
+  // var input = document.getElementById('pac-input');
 
-//   var autocomplete = new google.maps.places.Autocomplete(input);
-
-
-//     autocomplete.bindTo('bounds', map);
-
-//     var infowindow = new google.maps.InfoWindow();
-//     var marker = new google.maps.Marker({
-//       map: map,
-//       anchorPoint: new google.maps.Point(0, -29)
-//     });
-
-//     autocomplete.addListener('place_changed', function() {
-//       infowindow.close();
-//       marker.setVisible(false);
-//       var place = autocomplete.getPlace();
-//       // location.push(place);
+  // var autocomplete = new google.maps.places.Autocomplete(input);
 
 
+  //   autocomplete.bindTo('bounds', map);
+
+  //   var infowindow = new google.maps.InfoWindow();
+  //   var marker = new google.maps.Marker({
+  //     map: map,
+  //     anchorPoint: new google.maps.Point(0, -29)
+  //   });
+
+  //   autocomplete.addListener('place_changed', function() {
+  //     infowindow.close();
+  //     marker.setVisible(false);
+  //     var place = autocomplete.getPlace();
 
 
-//       //how do I throw this place over to my ng-controller? Best case you find a hack, worst case you 
-//       //throw all of this code into angular controller...using http instead of $ajax
-//       console.log('heres my place:', place)
+  //     if (!place.geometry) {
+  //       window.alert("Autocomplete's returned place contains no geometry");
+  //       return;
+  //     }
+  //   });
 
-
-
-
-
-//       if (!place.geometry) {
-//         window.alert("Autocomplete's returned place contains no geometry");
-//         return;
-//       }
 //      // If the place has a geometry, then present it on a map.
 //       if (place.geometry.viewport) {
 //         map.fitBounds(place.geometry.viewport);
@@ -67,8 +57,8 @@
 //       }));
 //       marker.setPosition(place.geometry.location);
 //       marker.setVisible(true);
-
-//       var address = '';
+//       console.log(place);
+      
 //       if (place.address_components) {
 //         address = [
 //           (place.address_components[0] && place.address_components[0].short_name || ''),
@@ -76,6 +66,7 @@
 //           (place.address_components[2] && place.address_components[2].short_name || '')
 //         ].join(' ');
 //         console.log('here is my address', address)
+   
 //       }
 
 //       infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
@@ -98,6 +89,24 @@
 //         autocomplete.setTypes(types);
 //       });
 //     }
+
+//     $('.submit-theft').on('click', function(e){
+//       e.preventDefault();
+
+//         var theft = {
+//           Email: $('#email').val(),
+//           Name: $('#name').val(),
+//           Item: $('#item').val(),
+//           Value: $('#value').val(),
+//           Location: address,
+//           Date: $('#date').val(),
+//         };
+
+//         console.log('here is the theft object', theft);
+
+//         $.post( "/theft", theft).done(function(response){console.log(response)}).fail(function(){console.log('error')});
+
+//     })
 
 //     setupClickListener('changetype-all', []);
 //     setupClickListener('changetype-address', ['address']);
