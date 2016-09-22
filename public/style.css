@@ -11,7 +11,7 @@ input {
 /*//https://mcclungs.files.wordpress.com/2011/11/vine-green-background-pattern.jpg*/
 
 body {
-  background-image: url("http://static.wixstatic.com/media/bd5178_4de570d4de6649ce83bd65304ab7aa84.gif");
+  background-image: url("http://upload.wikimedia.org/wikipedia/commons/5/52/AVE-Bridge-00.gif");
   background-size: cover;
   max-height: 1000px;
   padding-bottom: 55px;
@@ -78,7 +78,7 @@ tr:hover {
 }
 
 .list {
-  padding-top: 50px;
+  padding-top: 10px;
   padding-bottom: 30px;
   padding-left: 80px;
   padding-right: 80px;
@@ -94,7 +94,7 @@ tr:hover {
  }
 
 #map1 {
-  margin-top: 30px;
+  margin-top: 1px;
  /* width: 91.4%;*/
   height: 400px;
   margin-left: auto;
@@ -115,4 +115,26 @@ tr:hover {
 
  .getInfoBtn a {
   color: white;
+ }
+
+ .choosePurpose {
+  margin-bottom: 15px;
+ }
+
+ .foundItemTitle {
+  color: white;
+  text-shadow: 1px 1px 2px blue,
+               2px 2px 4px white;
+ }
+
+ .lostItemTitle {
+  color: white;
+  text-shadow: 1px 1px 2px orange,
+               2px 2px 4px darkorange;
+ }
+
+ .robItemTitle {
+  color: white;
+  text-shadow: 1px 1px 2px red,
+               2px 2px 4px brown;
  }

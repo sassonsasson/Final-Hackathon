@@ -17,9 +17,16 @@
 
   <div class="container col-md-6">
     <div class="container1">
-    <h2 class="title">Robbery Details</h2>
+    <h2 class="mainTitle title"> What Would You Like to Inform Of? </h2>
+      <div class="choosePurpose col-sm-offset-2 col-sm-10">
+        <button class="btn btn-danger" ng-click="robberyShow()"> Robbery </button>
+        <button class="btn btn-info" ng-click="foundShow()"> Found Item </button> 
+        <button class="btn btn-warning" ng-click="lostShow()"> Lost Item </button>
+      </div>
 
-      <form id="form">
+    <h2 class="title robItemTitle" ng-show="showRob">Robbery Details</h2>
+
+      <form ng-show="showRob" id="form">
         
           <div class="form-group">
             <input type="text" id="name" placeholder="What's your name?" class="form-control">
@@ -47,10 +54,88 @@
             <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
               <div style="text-align:center;">
                 <button type="submit" class="submit-theft btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
-                <button class="btn btn-success getInfoBtn" ng-click="retrieve()" id="retrieve-thefts">
+                <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
                   <a href="#list"> Retrieve Report</a>
                 </button>
-                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button>
+                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button> -->
+              </div>
+          </div>  
+        
+      </form>
+
+      <h2 class="title foundItemTitle" ng-show="showFound">Found Item Details</h2>
+
+      <form ng-show="showFound" id="form">
+        
+          <div class="form-group">
+            <input type="text" id="name" placeholder="What's your name?" class="form-control">
+            <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
+            <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
+            <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you Find the Item?" id="location">
+              <div id="type-selector" class="controls text-center">
+                <input type="radio" name="type" id="changetype-all" checked="checked">
+                <label for="changetype-all">All</label>
+
+                <input type="radio" name="type" id="changetype-establishment">
+                <label for="changetype-establishment">Establishments</label>
+
+                <input type="radio" name="type" id="changetype-address">
+                <label for="changetype-address">Addresses</label>
+
+                <input type="radio" name="type" id="changetype-geocode">
+                <label for="changetype-geocode">Geocodes</label>
+              </div>
+              <div align="center">  
+                <select ng-options="x for x in list" ng-model="item" class="form-control">
+                  <option id="item" class="item" value=''>- Select item discreption -</option>
+                </select>
+              </div>  
+            <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
+              <div style="text-align:center;">
+                <button type="submit" class="submit-theft btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
+                <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
+                  <a href="#list"> Retrieve Report</a>
+                </button>
+                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button> -->
+              </div>
+          </div>  
+        
+      </form>
+
+      <h2 class="title lostItemTitle" ng-show="showLost">Lost Item Details</h2>      
+
+      <form ng-show="showLost" id="form">
+        
+          <div class="form-group">
+            <input type="text" id="name" placeholder="What's your name?" class="form-control">
+            <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
+            <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
+            <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you lose your item?" id="location">
+              <div id="type-selector" class="controls text-center">
+                <input type="radio" name="type" id="changetype-all" checked="checked">
+                <label for="changetype-all">All</label>
+
+                <input type="radio" name="type" id="changetype-establishment">
+                <label for="changetype-establishment">Establishments</label>
+
+                <input type="radio" name="type" id="changetype-address">
+                <label for="changetype-address">Addresses</label>
+
+                <input type="radio" name="type" id="changetype-geocode">
+                <label for="changetype-geocode">Geocodes</label>
+              </div>
+              <div align="center">  
+                <select ng-options="x for x in list" ng-model="item" class="form-control">
+                  <option id="item" class="item" value=''>- Select item discreption -</option>
+                </select>
+              </div>  
+            <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
+              <div style="text-align:center;">
+                <button type="submit" class="submit-theft btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
+                <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
+                  <a href="#list"> Retrieve Report</a>
+                </button>
+                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button> -->
               </div>
           </div>  
         
@@ -75,8 +160,16 @@
   <a name="list"></a>
 
 
-  <div ng-show="userMap2" class="container">
-    <div class="col-md-6" id="map1"></div>
+  <div ng-show="userMap2" class="container col-md-6">
+    <h2 class="title text-center"> SafeLocation Live Map </h2>
+    <h3 class="currentTime title"> {{curDate}} </h3>
+      <div id="map1"></div>
+        <div class="adminButtons col-xs-offset-4">
+          <button class="btn btn-success getInfoBtn" ng-click="retrieve()" id="retrieve-thefts">
+            <a href="#list"> Retrieve Report</a>
+          </button>
+          <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button>
+        </div>
   </div>
 
     <section ng-show="tableShow" class="list">

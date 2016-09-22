@@ -7,6 +7,10 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   $scope.userMap1 = false;
   $scope.userMap2 = true;
   $scope.tableShow = false;
+  $scope.showRob = false;
+  $scope.showFound = false;
+  $scope.showLost = false;
+  $scope.curDate = (Date().split('G')[0]);
 
   $scope.showMap1 = function(){  
     $scope.userMap1 = !$scope.userMap1
@@ -16,6 +20,24 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   }
   $scope.tableShow1 = function(){
     $scope.tableShow = !$scope.tableShow
+  }
+
+  $scope.robberyShow = function(){
+    $scope.showRob = !$scope.showRob
+    $scope.showFound = false;
+    $scope.showLost = false;
+  }
+
+  $scope.foundShow = function(){
+    $scope.showFound = !$scope.showFound
+    $scope.showRob = false;
+    $scope.showLost = false;
+  }
+
+  $scope.lostShow = function(){
+    $scope.showLost = !$scope.showLost
+    $scope.showRob = false;
+    $scope.showFound = false;
   }
 
   $scope.submitForm = function(){
@@ -50,6 +72,7 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   }
 
 });
+
 
 
 
