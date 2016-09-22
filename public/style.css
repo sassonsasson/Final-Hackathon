@@ -2,7 +2,11 @@ input {
   text-align: center;
 }
 .navbar {
-  background-image: url("http://catchofthedayjeffreysbay.com/wp-content/uploads/2015/05/2880x1800-light-sky-blue-solid-color-background.jpg");  
+  background-image: url("https://d13yacurqjgara.cloudfront.net/users/533798/screenshots/2210893/safe.gif");
+  background-size: contain;  
+  color: white;
+  text-shadow: 1px 1px 2px black,
+               2px 2px 4px black;
 }
 /*//https://mcclungs.files.wordpress.com/2011/11/vine-green-background-pattern.jpg*/
 
@@ -25,6 +29,8 @@ body {
   padding-bottom: 5px;
   color: black;
   font-weight: bold;
+  text-shadow: 1px 1px 2px white,
+               2px 2px 4px white;
 }
 
 label {

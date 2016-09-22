@@ -18,6 +18,10 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
     $scope.tableShow = !$scope.tableShow
   }
 
+  $scope.submitForm = function(){
+    window.location.reload()
+  }
+
   $scope.retrieve = function(){
     ////////////////CALLBACKS///////////////////////////////////////////////////////
     
