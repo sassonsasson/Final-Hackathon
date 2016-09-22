@@ -71,6 +71,7 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
     things.getPosts($scope.data($index)).then(successCallbackGet, errorCallback);        
   }
 
+
 });
 
 
