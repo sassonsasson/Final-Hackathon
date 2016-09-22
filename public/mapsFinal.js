@@ -1,5 +1,4 @@
 // document.getElementById("form").click(".submit-theft").reset();
-
 $.ajax({
   url: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBBaeVQ5VnEhNnvrIJ8InOhq3n_vWWqQxI&libraries=places",
   dataType: "jsonp"

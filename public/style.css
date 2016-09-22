@@ -7,7 +7,9 @@ input {
 /*//https://mcclungs.files.wordpress.com/2011/11/vine-green-background-pattern.jpg*/
 
 body {
-  background-image: url("http://ram68.com/WebRoot/Store2/Shops/2ff49ed2-9b4a-4bd9-a3a7-431c30c8d82a/MediaGallery/Categories/RAM_Home/Laminate_Colors/laminate_dovegrey,Medium.jpg");
+  background-image: url("http://static.wixstatic.com/media/bd5178_4de570d4de6649ce83bd65304ab7aa84.gif");
+  background-size: cover;
+  max-height: 1000px;
   padding-bottom: 55px;
 }
 
@@ -18,9 +20,9 @@ body {
   font-size: 38px;
 }
 .title {
+
   text-align: center;
-  padding-top: 130px;
-  padding-bottom: 25px;
+  padding-bottom: 5px;
   color: black;
   font-weight: bold;
 }
@@ -31,14 +33,17 @@ label {
 }
 
 .container {
-  background-image: url("https://a0.muscache.com/locations/uploads/photo/image/42287/0_4200_0_2800_one_Revised_Neigborhoods_Tel-Aviv_Vaaknin_150813_0580_HR1.jpg");
-  /*background-image: url("https://pixabay.com/static/uploads/photo/2013/07/28/22/40/tel-aviv-168508_1280.jpg");*/
   width: 100%;
   padding-bottom: 25px;
 }
 
+.container1 {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
 .form-control {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
 table {
@@ -74,10 +79,10 @@ tr:hover {
 }
 
 #map {
-  margin-top: 30px;
+  margin-top: 20px;
  /* width: 91.4%;*/
-  height: 600px;
-  background-color: grey;
+  height: 400px;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
  }
@@ -85,8 +90,19 @@ tr:hover {
 #map1 {
   margin-top: 30px;
  /* width: 91.4%;*/
-  height: 800px;
-  background-color: grey;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
+ }
+
+ #type-selector  {
+    background-color:black;
+    z-index:0;
+    opacity:1;
+  
+ }
+
+ #type-selector label {
+    color: white;
+  
  }

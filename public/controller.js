@@ -4,22 +4,31 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
 
   $scope.data = [];
 
-  $scope.test1 = true;
+  $scope.userMap1 = false;
+  $scope.userMap2 = true;
+  $scope.tableShow = false;
 
-  $scope.makeOpp = function(){
-    
-    $scope.test1 = !$scope.test1
+  $scope.showMap1 = function(){  
+    $scope.userMap1 = !$scope.userMap1
+  }
+  $scope.showMap2 = function(){  
+    $scope.userMap2 = !$scope.userMap2
+  }
+  $scope.tableShow1 = function(){
+    $scope.tableShow = !$scope.tableShow
   }
 
   $scope.retrieve = function(){
     ////////////////CALLBACKS///////////////////////////////////////////////////////
     
     var successCallbackGet =  function(info){
-      // console.log(info.data);
+      $scope.data = [];
+
         for(var i=0; i<info.data.length; i++){
           $scope.data.push(info.data[i]);
         }
-        // console.log($scope.data);
+        $scope.userMap1 = false;
+        $scope.userMap2 = true;
     }
     var errorCallback = function(){
       console.log('there was a post problem')
@@ -30,6 +39,7 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
     items.getPosts().then(successCallbackGet, errorCallback);
 
 };
+  $scope.retrieve();
 
   $scope.click = function(){
     things.getPosts($scope.data($index)).then(successCallbackGet, errorCallback);        
