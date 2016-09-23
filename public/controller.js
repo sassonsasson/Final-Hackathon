@@ -55,6 +55,8 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
         }
         $scope.userMap1 = false;
         $scope.userMap2 = true;
+        console.log($scope.data)
+        console.log(info)
     }
     var errorCallback = function(){
       console.log('there was a post problem')

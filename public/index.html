@@ -19,9 +19,12 @@
     <div class="container1">
     <h2 class="mainTitle title"> What Would You Like to Inform Of? </h2>
       <div class="choosePurpose col-sm-offset-2 col-sm-10">
-        <button class="btn btn-danger" ng-click="robberyShow()"> Robbery </button>
-        <button class="btn btn-info" ng-click="foundShow()"> Found Item </button> 
-        <button class="btn btn-warning" ng-click="lostShow()"> Lost Item </button>
+        <button class="btn btn-danger" ng-click="robberyShow()">
+         Robbery <i class="fa fa-gavel" aria-hidden="true"></i> </button>
+        <button class="btn btn-info" ng-click="foundShow()">
+         Found Item <i class="fa fa-blind" aria-hidden="true"></i></button> 
+        <button class="btn btn-warning" ng-click="lostShow()">
+        Lost Item <i class="fa fa-exclamation-circle" aria-hidden="true"></i></button>
       </div>
 
     <h2 class="title robItemTitle" ng-show="showRob">Robbery Details
@@ -70,9 +73,9 @@
       <form ng-show="showFound" id="form">
         
           <div class="form-group">
-            <input type="text" id="name" placeholder="What's your name?" class="form-control">
-            <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
-            <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
+            <input type="text" id="Fname" placeholder="What's your name?" class="form-control">
+            <input id="Femail" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
+            <input id="Fdate" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
             <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you Find the Item?" id="location">
               <div id="type-selector" class="controls text-center">
                 <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -89,12 +92,12 @@
               </div>
               <div align="center">  
                 <select ng-options="x for x in list" ng-model="item" class="form-control">
-                  <option id="item" class="item" value=''>- Select item discreption -</option>
+                  <option id="Fitem" class="item" value=''>- Select item discreption -</option>
                 </select>
               </div>  
-            <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
+            <input type="text" id="Fvalue" placeholder="What is the ILS value?" class="form-control">
               <div style="text-align:center;">
-                <button type="submit" class="submit-theft btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
+                <button type="submit" class="btn btn-primary sumbit-found-item" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
                 <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
                   <a href="#list"> Retrieve Report</a>
                 </button>
@@ -106,13 +109,13 @@
 
       <h2 class="title lostItemTitle" ng-show="showLost">Lost Item Details
       <i class="fa fa-linux" aria-hidden="true"></i></h2>      
-
+  
       <form ng-show="showLost" id="form">
         
           <div class="form-group">
-            <input type="text" id="name" placeholder="What's your name?" class="form-control">
-            <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
-            <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
+            <input type="text" id="Lname" placeholder="What's your name?" class="form-control">
+            <input id="Lemail" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
+            <input id="Ldate" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
             <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you lose your item?" id="location">
               <div id="type-selector" class="controls text-center">
                 <input type="radio" name="type" id="changetype-all" checked="checked">
@@ -129,12 +132,12 @@
               </div>
               <div align="center">  
                 <select ng-options="x for x in list" ng-model="item" class="form-control">
-                  <option id="item" class="item" value=''>- Select item discreption -</option>
+                  <option id="Litem" class="item" value=''>- Select item discreption -</option>
                 </select>
               </div>  
-            <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
+            <input type="text" id="Lvalue" placeholder="What is the ILS value?" class="form-control">
               <div style="text-align:center;">
-                <button type="submit" class="submit-theft btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
+                <button type="submit" class="sumbit-lost-item btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
                 <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
                   <a href="#list"> Retrieve Report</a>
                 </button>

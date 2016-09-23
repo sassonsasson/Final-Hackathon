@@ -110,6 +110,42 @@ function initialize(condition) {
 
     })
 
+    $('.sumbit-found-item').on('click', function(e){
+      e.preventDefault();
+
+        var found = {
+          Email: $('#Femail').val(),
+          Name: $('#Fname').val(),
+          Item: $('#Fitem').val(),
+          Value: $('#Fvalue').val(),
+          Location: address,
+          Date: $('#Fdate').val(),
+        };
+
+        console.log('here is the theft object', found);
+
+        $.post( "/theft", found).done(function(response){console.log(response)}).fail(function(){console.log('error')});
+
+    })
+
+    $('.sumbit-lost-item').on('click', function(e){
+      e.preventDefault();
+
+        var lost = {
+          Email: $('#Lemail').val(),
+          Name: $('#Lname').val(),
+          Item: $('#Litem').val(),
+          Value: $('#Lvalue').val(),
+          Location: address,
+          Date: $('#Ldate').val(),
+        };
+
+        console.log('here is the theft object', lost);
+
+        $.post( "/theft", lost).done(function(response){console.log(response)}).fail(function(){console.log('error')});
+
+    })
+
     setupClickListener('changetype-all', []);
     setupClickListener('changetype-address', ['address']);
     setupClickListener('changetype-establishment', ['establishment']);
@@ -125,6 +161,7 @@ var spot = [];
         for(var i=0; i<response.length; i++){
           spot.push(response[i].Location);
         }
+        console.log(response)
       })
       .fail(function(){
         console.log('error')
