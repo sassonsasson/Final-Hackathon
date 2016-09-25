@@ -1,8 +1,10 @@
 app.controller('cityCtrl', function($scope, items, $http, $document){
   console.log('should see this log on page load up')
   $scope.list = items.things;
+  $scope.event = items.typeSend;
 
   $scope.data = [];
+  $scope.email = ''
 
   $scope.userMap1 = false;
   $scope.userMap2 = true;
@@ -55,8 +57,6 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
         }
         $scope.userMap1 = false;
         $scope.userMap2 = true;
-        console.log($scope.data)
-        console.log(info)
     }
     var errorCallback = function(){
       console.log('there was a post problem')

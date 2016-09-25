@@ -1,6 +1,7 @@
 app.factory('items', function ($http) {
 
   var things = ["Bike", "Cash", "Computer", "Handbag", "Jewelry", "Phone", "Wallet"];
+  var typeSend = ["Theft", "Lost", "Found"]
 
     var getPosts = function(){
 
@@ -18,7 +19,7 @@ app.factory('items', function ($http) {
 
 
 
-    return {things:things, getPosts:getPosts};
+    return {things:things, typeSend:typeSend, getPosts:getPosts};
 
 
 });

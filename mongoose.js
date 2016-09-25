@@ -8,7 +8,9 @@ var TheftSchema = new mongoose.Schema({
   Date: String,
   Location: String,
   Item: String,
+  Event: String,
   Value: Number,
+  Desc: String,
 });
 
 var Theft = mongoose.model("Theft", TheftSchema);

@@ -1,17 +1,10 @@
 input {
   text-align: center;
 }
-.navbar {
-  background-image: url("https://d13yacurqjgara.cloudfront.net/users/533798/screenshots/2210893/safe.gif");
-  background-size: contain;  
-  color: white;
-  text-shadow: 1px 1px 2px black,
-               2px 2px 4px black;
-}
-/*//https://mcclungs.files.wordpress.com/2011/11/vine-green-background-pattern.jpg*/
+
 
 body {
-  background-image: url("http://upload.wikimedia.org/wikipedia/commons/5/52/AVE-Bridge-00.gif");
+  background-image: url("http://4.bp.blogspot.com/-DOK2kla10Uo/VfLyjt81ehI/AAAAAAABQps/3JX7Qblhq50/s1600/tel_aviv.jpg");
   background-size: cover;
   max-height: 1000px;
   padding-bottom: 55px;
@@ -19,18 +12,41 @@ body {
 
 .logo {
   text-align: center;
-  font-family: "Lucida Console";
+  font-family: 'Kaushan Script', cursive;
   font-weight: bold;
-  font-size: 38px;
+  font-size: 45px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px lightblue, 0 0 5px blue,
+               2px 2px 4px black,
+               4px 4px 6px black;
 }
+
+.silver {
+  color: silver;
+}
+
+.green {
+  color:red;
+}
+
+.tm {
+  font-size: 30px;
+}
+
+.h5 {
+  font-size: 15px;
+}
+
 .title {
   margin-top: 10px;
   text-align: center;
   padding-bottom: 5px;
-  color: black;
+  color: white;
+  font-family: 'Comfortaa', cursive;
   font-weight: bold;
-  text-shadow: 1px 1px 2px white,
-               2px 2px 4px white;
+  text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px lightblue,
+               2px 2px 4px black,
+               4px 4px 6px black;
 }
 
 label {
@@ -49,7 +65,7 @@ label {
 }
 
 .form-control {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 table {

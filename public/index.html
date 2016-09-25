@@ -5,160 +5,61 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Farsan|Kaushan+Script" rel="stylesheet">
 
 
 </head>
 <body ng-controller="cityCtrl">
 
-<nav class="navbar navbar-default">
-  <h2 class="logo">SafeLocation</h2>
-
-</nav>
+  <h2 class="logo">Safe<span class="logo green">Location<span></h2>
 
   <div class="container col-md-6">
     <div class="container1">
-    <h2 class="mainTitle title"> What Would You Like to Inform Of? </h2>
+    <h2 class="mainTitle title"> Report an Incident </h2>
       <div class="choosePurpose col-sm-offset-2 col-sm-10">
-        <button class="btn btn-danger" ng-click="robberyShow()">
-         Theft <i class="fa fa-gavel" aria-hidden="true"></i> </button>
-        <button class="btn btn-info" ng-click="foundShow()">
-         Found Item <i class="fa fa-blind" aria-hidden="true"></i></button> 
-        <button class="btn btn-warning" ng-click="lostShow()">
-        Lost Item <i class="fa fa-exclamation-circle" aria-hidden="true"></i></button>
+        <!-- <button class="btn btn-danger" ng-click="robberyShow()">
+         Report <i class="fa fa-gavel" aria-hidden="true"></i> </button> -->
+       
       </div>
 
-    <h2 class="title robItemTitle" ng-show="showRob">Theft Details
-    <i class="fa fa-gavel" aria-hidden="true"></i></h2>
-
-      <form ng-show="showRob" id="form">
+<!--       <form id="form"> -->
         
           <div class="form-group">
             <input type="text" id="name" placeholder="What's your name?" class="form-control">
-            <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
+            <input type="email" id="email" type="text" placeholder="What's your email?" class="form-control">
             <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
-            <input id="pac-input" class="controls form-control" type="text" placeholder="What is the location of robbery?" id="location">
-              <!-- <div id="type-selector" class="controls text-center">
-                <input type="radio" name="type" id="changetype-all" checked="checked">
-                <label for="changetype-all">All</label>
-
-                <input type="radio" name="type" id="changetype-establishment">
-                <label for="changetype-establishment">Establishments</label>
-
-                <input type="radio" name="type" id="changetype-address">
-                <label for="changetype-address">Addresses</label>
-
-                <input type="radio" name="type" id="changetype-geocode">
-                <label for="changetype-geocode">Geocodes</label>
-              </div> -->
+            <input id="pac-input" class="controls form-control" type="text" placeholder="Enter Location of Event">
+              
               <div align="center">  
-                <select ng-options="x for x in list" ng-model="item" class="form-control">
-                  <option id="item" class="item" value=''>- Select item stolen -</option>
+                <select id="event" class="form-control">
+                  <option  class="event">- Select Event -</option>
+                  <option class="item"> Theft </option>
+                  <option class="item"> Lost </option>
+                  <option class="item"> Found </option>
                 </select>
               </div>  
+              <div align="center">  
+                <select id="item" class="form-control">
+                  <option class="item">- Select an Item -</option>
+                  <option class="item"> Cash </option>
+                  <option class="item"> Wallet </option>
+                  <option class="item"> Phone </option>
+                  <option class="item"> Bike </option>
+                  <option class="item"> Jewlery </option>
+                  <option class="item"> Other </option>
+                </select>
+              </div>
             <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
+            <input id="desc" type="text" ng-model="desc" placeholder="Any additional details?" class="form-control">
               <div style="text-align:center;">
-                <button type="submit" class="submit-theft btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
-                <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
-                  <a href="#list"> Retrieve Report</a>
-                </button>
-                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button> -->
+                <button type="submit" class="submit-theft btn btn-danger" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
+            
               </div>
           </div>  
-        
-      </form>
+        <!-- </form> -->
+       </div>
+     </div>
 
-      <h2 class="title foundItemTitle" ng-show="showFound">
-      Found Item Details <i class="fa fa-blind" aria-hidden="true"></i></h2>
-
-      <form ng-show="showFound" id="form">
-        
-          <div class="form-group">
-            <input type="text" id="Fname" placeholder="What's your name?" class="form-control">
-            <input id="Femail" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
-            <input id="Fdate" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
-            <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you Find the Item?" id="location">
-              <!-- <div id="type-selector" class="controls text-center">
-                <input type="radio" name="type" id="changetype-all" checked="checked">
-                <label for="changetype-all">All</label>
-
-                <input type="radio" name="type" id="changetype-establishment">
-                <label for="changetype-establishment">Establishments</label>
-
-                <input type="radio" name="type" id="changetype-address">
-                <label for="changetype-address">Addresses</label>
-
-                <input type="radio" name="type" id="changetype-geocode">
-                <label for="changetype-geocode">Geocodes</label>
-              </div> -->
-              <div align="center">  
-                <select ng-options="x for x in list" ng-model="item" class="form-control">
-                  <option id="Fitem" class="item" value=''>- Select item discreption -</option>
-                </select>
-              </div>  
-            <input type="text" id="Fvalue" placeholder="What is the ILS value?" class="form-control">
-              <div style="text-align:center;">
-                <button type="submit" class="btn btn-primary sumbit-found-item" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
-                <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
-                  <a href="#list"> Retrieve Report</a>
-                </button>
-                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button> -->
-              </div>
-          </div>  
-        
-      </form>
-
-      <h2 class="title lostItemTitle" ng-show="showLost">Lost Item Details
-      <i class="fa fa-exclamation-circle" aria-hidden="true"></i></h2>      
-  
-      <form ng-show="showLost" id="form">
-        
-          <div class="form-group">
-            <input type="text" id="Lname" placeholder="What's your name?" class="form-control">
-            <input id="Lemail" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
-            <input id="Ldate" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
-            <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you lose your item?" id="location">
-              <!-- <div id="type-selector" class="controls text-center">
-                <input type="radio" name="type" id="changetype-all" checked="checked">
-                <label for="changetype-all">All</label>
-
-                <input type="radio" name="type" id="changetype-establishment">
-                <label for="changetype-establishment">Establishments</label>
-
-                <input type="radio" name="type" id="changetype-address">
-                <label for="changetype-address">Addresses</label>
-
-                <input type="radio" name="type" id="changetype-geocode">
-                <label for="changetype-geocode">Geocodes</label>
-              </div> -->
-              <div align="center">  
-                <select ng-options="x for x in list" ng-model="item" class="form-control">
-                  <option id="Litem" class="item" value=''>- Select item discreption -</option>
-                </select>
-              </div>  
-            <input type="text" id="Lvalue" placeholder="What is the ILS value?" class="form-control">
-              <div style="text-align:center;">
-                <button type="submit" class="sumbit-lost-item btn btn-primary" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
-                <!-- <button class="btn btn-success getInfoBtn" ng-click="retrieve()" >
-                  <a href="#list"> Retrieve Report</a>
-                </button>
-                <button class="btn btn-warning" ng-click="tableShow1()"> Show Table </button> -->
-              </div>
-          </div>  
-        
-      </form>
-    </div>
-  </div>
-
-
-<!--   <div>
-    <ul style="list-style: none;">
-      <li ng-repeat="entry in data track by $index | orderBy:'Date':true">
-  
-        Date: {{entry.Date}} Location: {{entry.Location}} Item: {{entry.Item}} Value: {{entry.Value}}
-        
-      </li>
-    </ul>
-  </div>   -->
   <div ng-show="userMap1" class="container">
     <div class='col-md-6' id="map"></div>
   </div>
@@ -167,8 +68,8 @@
 
 
   <div ng-show="userMap2" class="container col-md-6">
-    <h2 class="title text-center"> SafeLocation Live Map </h2>
-    <h3 class="currentTime title"> {{curDate}} </h3>
+    <h2 class="title text-center"> <span class="tm logo"> Safe<span class="tm logo green">Location</span> </span>  Live Map </h2>
+    <!-- <h3 class="currentTime title"> {{curDate}} </h3> -->
       <div id="map1"></div>
         <div class="adminButtons col-xs-offset-4">
           <button class="btn btn-success getInfoBtn" ng-click="retrieve()" id="retrieve-thefts">
@@ -184,25 +85,29 @@
         <th>Date</th>
         <th>Location</th>
         <th>Item</th>
+        <th>Event</th>
         <th>Value</th>
+        <th>Description</th>
       </tr>
         <tr ng-repeat="entry in data | orderBy: 'Date'">
           <td>{{entry.Date}}</td>
           <td>{{entry.Location}}</td>
           <td>{{entry.Item}}</td>
+          <td>{{entry.Event}}</td>
           <td>{{entry.Value}}</td>
+          <td>{{entry.Desc}}</td>
       </tr>
       
     </table>
   </section>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
     $('.submit').on('click', function(e){
       e.preventDefault();
       alert($('#email').val())
     })
-  </script>
+  </script> -->
   
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="https://www.google.com/jsapi"></script>
@@ -212,7 +117,6 @@
   <script src="mapsFinal.js"></script>
   <script src="app.js"></script>
   <script src="factory.js"></script>
-  <script src="directive.js"></script>
   <script src="controller.js"></script>
   
 
