@@ -20,14 +20,14 @@
     <h2 class="mainTitle title"> What Would You Like to Inform Of? </h2>
       <div class="choosePurpose col-sm-offset-2 col-sm-10">
         <button class="btn btn-danger" ng-click="robberyShow()">
-         Robbery <i class="fa fa-gavel" aria-hidden="true"></i> </button>
+         Theft <i class="fa fa-gavel" aria-hidden="true"></i> </button>
         <button class="btn btn-info" ng-click="foundShow()">
          Found Item <i class="fa fa-blind" aria-hidden="true"></i></button> 
         <button class="btn btn-warning" ng-click="lostShow()">
         Lost Item <i class="fa fa-exclamation-circle" aria-hidden="true"></i></button>
       </div>
 
-    <h2 class="title robItemTitle" ng-show="showRob">Robbery Details
+    <h2 class="title robItemTitle" ng-show="showRob">Theft Details
     <i class="fa fa-gavel" aria-hidden="true"></i></h2>
 
       <form ng-show="showRob" id="form">
@@ -37,7 +37,7 @@
             <input id="email" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
             <input id="date" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
             <input id="pac-input" class="controls form-control" type="text" placeholder="What is the location of robbery?" id="location">
-              <div id="type-selector" class="controls text-center">
+              <!-- <div id="type-selector" class="controls text-center">
                 <input type="radio" name="type" id="changetype-all" checked="checked">
                 <label for="changetype-all">All</label>
 
@@ -49,7 +49,7 @@
 
                 <input type="radio" name="type" id="changetype-geocode">
                 <label for="changetype-geocode">Geocodes</label>
-              </div>
+              </div> -->
               <div align="center">  
                 <select ng-options="x for x in list" ng-model="item" class="form-control">
                   <option id="item" class="item" value=''>- Select item stolen -</option>
@@ -68,7 +68,7 @@
       </form>
 
       <h2 class="title foundItemTitle" ng-show="showFound">
-      Found Item Details <i class="fa fa-heart-o" aria-hidden="true"></i></h2>
+      Found Item Details <i class="fa fa-blind" aria-hidden="true"></i></h2>
 
       <form ng-show="showFound" id="form">
         
@@ -77,7 +77,7 @@
             <input id="Femail" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
             <input id="Fdate" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
             <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you Find the Item?" id="location">
-              <div id="type-selector" class="controls text-center">
+              <!-- <div id="type-selector" class="controls text-center">
                 <input type="radio" name="type" id="changetype-all" checked="checked">
                 <label for="changetype-all">All</label>
 
@@ -89,7 +89,7 @@
 
                 <input type="radio" name="type" id="changetype-geocode">
                 <label for="changetype-geocode">Geocodes</label>
-              </div>
+              </div> -->
               <div align="center">  
                 <select ng-options="x for x in list" ng-model="item" class="form-control">
                   <option id="Fitem" class="item" value=''>- Select item discreption -</option>
@@ -108,7 +108,7 @@
       </form>
 
       <h2 class="title lostItemTitle" ng-show="showLost">Lost Item Details
-      <i class="fa fa-linux" aria-hidden="true"></i></h2>      
+      <i class="fa fa-exclamation-circle" aria-hidden="true"></i></h2>      
   
       <form ng-show="showLost" id="form">
         
@@ -117,7 +117,7 @@
             <input id="Lemail" type="text" ng-model="email" placeholder="What's your email?" class="form-control">
             <input id="Ldate" type="text" onfocus="(this.type='date')" placeholder="What is the date of the event?" class="form-control">
             <input id="pac-input" class="controls form-control" type="text" placeholder="Where Did you lose your item?" id="location">
-              <div id="type-selector" class="controls text-center">
+              <!-- <div id="type-selector" class="controls text-center">
                 <input type="radio" name="type" id="changetype-all" checked="checked">
                 <label for="changetype-all">All</label>
 
@@ -129,7 +129,7 @@
 
                 <input type="radio" name="type" id="changetype-geocode">
                 <label for="changetype-geocode">Geocodes</label>
-              </div>
+              </div> -->
               <div align="center">  
                 <select ng-options="x for x in list" ng-model="item" class="form-control">
                   <option id="Litem" class="item" value=''>- Select item discreption -</option>
