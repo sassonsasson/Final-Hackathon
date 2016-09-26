@@ -15,7 +15,6 @@ app.use(express.static('node_modules'));
 app.post('/theft', function(req, res) {
   console.log('here is the name:', req.body.Item);
   var theft = new Theft();
-  theft.Name = req.body.Name;
   theft.Email = req.body.Email;
   theft.Date = req.body.Date;
   theft.Location = req.body.Location;

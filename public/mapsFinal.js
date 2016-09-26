@@ -97,7 +97,6 @@ function initialize(condition) {
 
         var theft = {
           Email: $('#email').val(),
-          Name: $('#name').val(),
           Item: $('#item :selected').text(),
           Event: $('#event :selected').text(),
           Value: $('#value').val(),
