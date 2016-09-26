@@ -108,10 +108,14 @@ function initialize(condition) {
           $('#event :selected').text()+
           '</h3><h5>'+
           $('#date').val()+
+          ' Item: '+
           $('#item :selected').text()+
-          '</h5><p>'+
+          '</h5><p> Description:'+
           $('#desc').val()+
-          '</p></div>'
+          '</p>'+
+          "<img style="+
+          "'max-height:150px;max-width:150px;"+ "' "+
+          "src='"+$('#photo').val()+"'></div>"
         };
 
         console.log('here is the theft object', theft);
@@ -136,11 +140,9 @@ var popdesc = [];
 
   $.get( "/theft")
       .done(function(response){
-          console.log(response)
         for(var i=0; i<response.length; i++){
           spot.push(response[i].Location);
           popdesc.push(response[i].Popup);
-          console.log(popdesc)
         }
      
       })
