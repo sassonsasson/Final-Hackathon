@@ -28,7 +28,8 @@ function initialize(condition) {
     var infowindow = new google.maps.InfoWindow();
     var marker = new google.maps.Marker({
       map: map,
-      anchorPoint: new google.maps.Point(0, -29)
+      anchorPoint: new google.maps.Point(0, -29),
+
     });
 
     autocomplete.addListener('place_changed', function() {
@@ -102,10 +103,20 @@ function initialize(condition) {
           Value: $('#value').val(),
           Location: address,
           Date: $('#date').val(),
-          Desc: $('#desc').val()
+          Desc: $('#desc').val(),
+          Popup: '<div class="text-center"><h3>'+
+          $('#event :selected').text()+
+          '</h3><h5>'+
+          $('#date').val()+
+          $('#item :selected').text()+
+          '</h5><p>'+
+          $('#desc').val()+
+          '</p></div>'
         };
 
         console.log('here is the theft object', theft);
+        // popup_content.push('<h1>'+theft.Name+'</h1>')
+        // console.log(popup_content)
 
         $.post( "/theft", theft).done(function(response){console.log(response)}).fail(function(){console.log('error')});
 
@@ -121,11 +132,15 @@ function initialize(condition) {
 
 
 var spot = [];
+var popdesc = [];
 
   $.get( "/theft")
       .done(function(response){
+          console.log(response)
         for(var i=0; i<response.length; i++){
           spot.push(response[i].Location);
+          popdesc.push(response[i].Popup);
+          console.log(popdesc)
         }
      
       })
@@ -140,14 +155,15 @@ var bounds = new google.maps.LatLngBounds();
 // Creating an array that will contain the addresses
 var places = [];
 // Creating a variable that will hold the InfoWindow object
-var infoWindow = new google.maps.InfoWindow(), marker, i;
+var infowindow = new google.maps.InfoWindow(), marker, i;
 // markerclusterer
 var markerCluster = new MarkerClusterer(map1, markers, {imagePath: 'https://raw.githubusercontent.com/googlemaps/v3-utility-library/master/markerclustererplus/images/m'})
 // 2.png'})
 // , {imagePath: '../images/m2.png'});
-var popup_content = ["<p>DTR Medical<\/p><img src=\"http:\/\/www.mediwales.com\/mapping\/wp-content\/uploads\/2011\/09\/dtr-logo.png\" \/><br \/><br \/><a href=\"http:\/\/www.mediwales.com\/mapping\/home\/dtr-medical\/\">View profile<\/a>", "<p>MediWales<\/p><img src=\"http:\/\/www.mediwales.com\/mapping\/wp-content\/uploads\/2011\/09\/index.png\" \/><br \/><br \/><a href=\"http:\/\/www.mediwales.com\/mapping\/home\/mediwales\/\">View profile<\/a>", "<p>Teamworks Design & Marketing<\/p><img src=\"http:\/\/www.mediwales.com\/mapping\/wp-content\/uploads\/2011\/09\/Teamworks-Design-Logo.png\" \/><br \/><br \/><a href=\"http:\/\/www.mediwales.com\/mapping\/home\/teamworks-design-and-marketing\/\">View profile<\/a>", "<p>Acuitas Medical<\/p><img src=\"http:\/\/www.mediwales.com\/mapping\/wp-content\/uploads\/2011\/09\/acuitas-medical-logo.gif\" \/><br \/><br \/><a href=\"http:\/\/www.mediwales.com\/mapping\/home\/acuitas-medical\/\">View profile<\/a>", "<p>Nightingale<\/p><img src=\"http:\/\/www.mediwales.com\/mapping\/wp-content\/uploads\/2011\/09\/Nightingale.png\" \/><br \/><br \/><a href=\"http:\/\/www.mediwales.com\/mapping\/home\/nightingale\/\">View profile<\/a>"];
+var popup_content = popdesc;
 var geocoder = new google.maps.Geocoder();
 var markers = [];
+
 
         // Adding a LatLng object for each city
         for (var i = 0; i < address.length; i++) {

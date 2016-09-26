@@ -32,7 +32,7 @@
               
               <div align="center">  
                 <select id="event" class="form-control">
-                  <option  class="event">- Select Event -</option>
+                  <option class="event">- Select Event -</option>
                   <option class="item"> Theft </option>
                   <option class="item"> Lost </option>
                   <option class="item"> Found </option>
@@ -40,7 +40,7 @@
               </div>  
               <div align="center">  
                 <select id="item" class="form-control">
-                  <option class="item">- Select an Item -</option>
+                  <option class="event">- Select an Item -</option>
                   <option class="item"> Cash </option>
                   <option class="item"> Wallet </option>
                   <option class="item"> Phone </option>
@@ -80,6 +80,8 @@
   </div>
 
     <section ng-show="tableShow" class="list">
+    <h3 class="logo text-center">Search<span class="logo green">Locator<span></h3>
+    <input type="text" class="dataSearchIn" id="databaseSearch" placeholder="Search Data" ng-model="aSearch">
     <table class="table table-f">
       <tr>
         <th>Date</th>
@@ -89,7 +91,7 @@
         <th>Value</th>
         <th>Description</th>
       </tr>
-        <tr ng-repeat="entry in data | orderBy: 'Date'">
+        <tr ng-repeat="entry in data | orderBy: 'Date' | filter:aSearch">
           <td>{{entry.Date}}</td>
           <td>{{entry.Location}}</td>
           <td>{{entry.Item}}</td>

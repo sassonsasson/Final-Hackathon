@@ -11,6 +11,7 @@ var TheftSchema = new mongoose.Schema({
   Event: String,
   Value: Number,
   Desc: String,
+  Popup: String,
 });
 
 var Theft = mongoose.model("Theft", TheftSchema);

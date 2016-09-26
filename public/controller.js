@@ -5,6 +5,7 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
 
   $scope.data = [];
   $scope.email = ''
+  $scope.aSearch = ''
 
   $scope.userMap1 = false;
   $scope.userMap2 = true;
@@ -22,24 +23,6 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   }
   $scope.tableShow1 = function(){
     $scope.tableShow = !$scope.tableShow
-  }
-
-  $scope.robberyShow = function(){
-    $scope.showRob = !$scope.showRob
-    $scope.showFound = false;
-    $scope.showLost = false;
-  }
-
-  $scope.foundShow = function(){
-    $scope.showFound = !$scope.showFound
-    $scope.showRob = false;
-    $scope.showLost = false;
-  }
-
-  $scope.lostShow = function(){
-    $scope.showLost = !$scope.showLost
-    $scope.showRob = false;
-    $scope.showFound = false;
   }
 
   $scope.submitForm = function(){
