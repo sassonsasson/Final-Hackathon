@@ -95,6 +95,8 @@ function initialize(condition) {
   }
     $('.submit-theft').on('click', function(){
 
+      if($('#email').val() !== '' && $('#event :selected').text() !== '- Select Event -' && $('#date').val() !== ''){
+
         var theft = {
           Email: $('#email').val(),
           Item: $('#item :selected').text(),
@@ -116,12 +118,21 @@ function initialize(condition) {
           "'max-height:150px;max-width:150px;"+ "' "+
           "src='"+$('#photo').val()+"'></div>"
         };
-
+        
+        $.post( "/theft", theft).done(function(response){console.log(response)}).fail(function(){console.log('error')});
         console.log('here is the theft object', theft);
+        location.reload()
+      } else {
+        $("#email").css("background-color", "pink"),
+        $("#event").css("background-color", "pink"),
+        $("#date").css("background-color", "pink"),
+        $("#pac-input").css("background-color", "pink");
+      }
+
+
         // popup_content.push('<h1>'+theft.Name+'</h1>')
         // console.log(popup_content)
 
-        $.post( "/theft", theft).done(function(response){console.log(response)}).fail(function(){console.log('error')});
 
     })
 

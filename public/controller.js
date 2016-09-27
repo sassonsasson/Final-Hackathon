@@ -7,7 +7,6 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   $scope.email = ''
   $scope.aSearch = ''
   $scope.px = 0
-  $scope.pxx = 10
 
   $scope.userMap1 = false;
   $scope.userMap2 = false;
@@ -15,6 +14,15 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   $scope.tableShow = false;
   $scope.showMission = true;
   $scope.curDate = (Date().split('G')[0]);
+
+  $scope.backHome = function(){
+    $scope.userMap1 = false;
+    $scope.userMap2 = false;
+    $scope.inputShow = false;
+    $scope.tableShow = false;
+    $scope.showMission = true;
+    $scope.px = 0; 
+  }
 
   $scope.showInputBox = function(){
     $scope.inputShow = !$scope.inputShow
@@ -35,7 +43,7 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   }
 
   $scope.submitForm = function(){
-    window.location.reload()
+    // window.location.reload()
   }
 
   $scope.retrieve = function(){
