@@ -6,6 +6,8 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   $scope.data = [];
   $scope.email = ''
   $scope.aSearch = ''
+  $scope.px = 0
+  $scope.pxx = 10
 
   $scope.userMap1 = false;
   $scope.userMap2 = false;
@@ -19,12 +21,14 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
     $scope.userMap2 = true
     $scope.tableShow = false
     $scope.showMission = false
+    $scope.px = 1
   }
   $scope.tableShow1 = function(){
     $scope.tableShow = !$scope.tableShow
     $scope.userMap2 = true
     $scope.inputShow = false
     $scope.showMission = false
+    $scope.px = 1
   }
   $scope.showMap1 = function(){  
     $scope.userMap1 = !$scope.userMap1
