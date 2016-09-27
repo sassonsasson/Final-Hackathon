@@ -17,20 +17,18 @@
   <div class="mainTitle title text-center" style="max-width:60%;margin-left:20%"><h3> Our dream is to increase the level of safety and security for all those who love the city of Tel Aviv.</h3><h3> We seek your partnership in reporting missing items due to theft or loss.</h3><h3>  We offer a platform to track lost / found items and to raise awareness around petty crime.</h3><h3>  Many of us have experienced a break-in, theft of a bike, wallet or phone.</h3><h3> By posting these events, it warns others of the criminal activity and creates a reliable set of metrics which may be used to push for further social change. </h3>
   </div>
   </div>
-  <div class="choosePurpose">
+  <div class="choosePurpose" id="retrieve-report">
     <button class="btn btn-danger" ng-click="showInputBox()">
      Report an Event <i class="fa fa-gavel" aria-hidden="true"></i> </button>
-    <button class="btn btn-success" ng-click="tableShow1()">
+    <button id="retrieve-event" class="btn btn-success" ng-click="tableShow1()">
      Show Reported Events <i class="fa fa-calendar" aria-hidden="true"></i> </button>
    
   </div>
 
   <div class="container col-md-6" style="opacity:{{px}};">
     <h2 class="mapTitle text-center"> <span class="tm logo"> Safe<span class="tm logo green">Location</span> </span>  Live Map </h2>
-          <button class="btn btn-success getInfoBtn" ng-click="retrieve()" id="retrieve-thefts">
-            <a href="#list"> Retrieve Report</a>
-          </button>
-    <!-- <h3 class="currentTime title"> {{curDate}} </h3> -->
+    
+    <input id="pac-input1" style="width:200px; height:30px; margin-top:10px;" class="controls" type="text" placeholder="SearchLocation">
       <div id="map1"></div>
       <div class="adminButtons col-xs-offset-4">
         </div>
@@ -75,7 +73,6 @@
         <!-- </form> -->
        </div>
      </div>
-
   <div ng-show="userMap1" class="container">
     <div class='col-md-6' id="map"></div>
   </div>
@@ -87,8 +84,12 @@
   <!-- <div class="fb-share-button" data-href="http://locationer.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocationer.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div> -->
 
     <section ng-show="tableShow" class="list col-md-6">
-    <h3 class="logo text-center searchLocator">Search<span class="logo green">Locator<span></h3>
-    <input type="text" class="dataSearchIn" id="databaseSearch" placeholder="Search Reported Events" ng-model="aSearch">
+
+    <div class="col-sm-12 searchTitles">
+      <h2 class="font30 logo text-center searchLocator col-sm-6">Search<span class="font30 logo green">Locator:</span></h2>
+      <input type="text" class="dataSearchIn" id="databaseSearch" placeholder="Search Reported Events" ng-model="aSearch">
+    </div>
+
     <table class="table table-f">
       <tr>
         <th>Date</th>

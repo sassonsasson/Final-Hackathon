@@ -11,12 +11,6 @@ body {
   padding-bottom: 55px;
 }
 
-.searchLocator {
-  margin-top: -50px;
-  margin-bottom: 5px;
-}
-
-
 .logo {
   text-align: center;
   font-family: 'Kaushan Script', cursive;
@@ -44,6 +38,16 @@ h3 .logo {
   margin-bottom: 1px;
 }
 
+.searchTitles{
+  margin-top: -9px;
+}
+
+.font30 {
+  font-size: 30px;
+  margin-top: -3px;
+  margin-right: -27px;
+}
+
 .silver {
   color: silver;
 }
@@ -61,7 +65,7 @@ h3 .logo {
 }
 
 .mapTitle {
-  margin-top: -23px;
+  margin-top: -7px;
   text-align: center;
   padding-bottom: 5px;
   color: white;
@@ -127,10 +131,10 @@ tr:hover {
 }
 
 .dataSearchIn {
-    margin-left: 37%;
+    margin-bottom: -20px;
     height: 34px;
     padding: 6px 6px;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;
@@ -189,3 +193,11 @@ tr:hover {
   margin-bottom: 15px;
   margin-left: 38.6%
  }
+
+ #pac-input1::-webkit-input-placeholder {
+  text-align: center;
+  font-family: 'Comfortaa';
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+}

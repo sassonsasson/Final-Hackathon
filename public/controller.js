@@ -30,6 +30,8 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
     $scope.tableShow = false
     $scope.showMission = false
     $scope.px = 1
+    $scope.retrieve();
+
   }
   $scope.tableShow1 = function(){
     $scope.tableShow = !$scope.tableShow
@@ -37,6 +39,7 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
     $scope.inputShow = false
     $scope.showMission = false
     $scope.px = 1
+    $scope.retrieve();
   }
   $scope.showMap1 = function(){  
     $scope.userMap1 = !$scope.userMap1
