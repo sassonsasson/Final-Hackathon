@@ -8,21 +8,26 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
   $scope.aSearch = ''
 
   $scope.userMap1 = false;
-  $scope.userMap2 = true;
+  $scope.userMap2 = false;
+  $scope.inputShow = false;
   $scope.tableShow = false;
-  $scope.showRob = false;
-  $scope.showFound = false;
-  $scope.showLost = false;
+  $scope.showMission = true;
   $scope.curDate = (Date().split('G')[0]);
 
-  $scope.showMap1 = function(){  
-    $scope.userMap1 = !$scope.userMap1
-  }
-  $scope.showMap2 = function(){  
-    $scope.userMap2 = !$scope.userMap2
+  $scope.showInputBox = function(){
+    $scope.inputShow = !$scope.inputShow
+    $scope.userMap2 = true
+    $scope.tableShow = false
+    $scope.showMission = false
   }
   $scope.tableShow1 = function(){
     $scope.tableShow = !$scope.tableShow
+    $scope.userMap2 = true
+    $scope.inputShow = false
+    $scope.showMission = false
+  }
+  $scope.showMap1 = function(){  
+    $scope.userMap1 = !$scope.userMap1
   }
 
   $scope.submitForm = function(){
@@ -38,8 +43,8 @@ app.controller('cityCtrl', function($scope, items, $http, $document){
         for(var i=0; i<info.data.length; i++){
           $scope.data.push(info.data[i]);
         }
-        $scope.userMap1 = false;
-        $scope.userMap2 = true;
+        
+        // $scope.userMap2 = true;
     }
     var errorCallback = function(){
       console.log('there was a post problem')

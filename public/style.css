@@ -6,15 +6,33 @@ input {
 body {
   background-image: url("http://4.bp.blogspot.com/-DOK2kla10Uo/VfLyjt81ehI/AAAAAAABQps/3JX7Qblhq50/s1600/tel_aviv.jpg");
   background-size: cover;
-  max-height: 1000px;
+  max-height: 850px;
+  background-repeat: no-repeat;
   padding-bottom: 55px;
 }
+
+.searchLocator {
+  margin-top: -50px;
+  margin-bottom: 5px;
+}
+
 
 .logo {
   text-align: center;
   font-family: 'Kaushan Script', cursive;
   font-weight: bold;
   font-size: 45px;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px lightblue, 0 0 5px blue,
+               2px 2px 4px black,
+               4px 4px 6px black;
+}
+
+.logoMin {
+  text-align: center;
+  font-family: 'Kaushan Script', cursive;
+  font-weight: bold;
+  font-size: 15px;
   color: white;
   text-shadow: 1px 1px 2px black, 0 0 25px lightblue, 0 0 5px blue,
                2px 2px 4px black,
@@ -40,6 +58,18 @@ h3 .logo {
 
 .h5 {
   font-size: 15px;
+}
+
+.mapTitle {
+  margin-top: -23px;
+  text-align: center;
+  padding-bottom: 5px;
+  color: white;
+  font-family: 'Comfortaa', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px lightblue,
+               2px 2px 4px black,
+               4px 4px 6px black;
 }
 
 .title {
@@ -97,7 +127,7 @@ tr:hover {
 }
 
 .dataSearchIn {
-    margin-left: 42%;
+    margin-left: 37%;
     height: 34px;
     padding: 6px 6px;
     margin-bottom: 10px;
@@ -151,24 +181,11 @@ tr:hover {
   color: white;
  }
 
+ .getInfoBtn {
+  margin-left: 41%;
+ }
+
  .choosePurpose {
   margin-bottom: 15px;
- }
-
- .foundItemTitle {
-  color: white;
-  text-shadow: 1px 1px 2px blue,
-               2px 2px 4px white;
- }
-
- .lostItemTitle {
-  color: white;
-  text-shadow: 1px 1px 2px orange,
-               2px 2px 4px darkorange;
- }
-
- .robItemTitle {
-  color: white;
-  text-shadow: 1px 1px 2px red,
-               2px 2px 4px brown;
+  margin-left: 38.6%
  }
