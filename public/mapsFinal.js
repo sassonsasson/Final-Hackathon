@@ -124,7 +124,7 @@ function initialize(condition) {
         console.log(theft)
         $.post( "/theft", theft).done(function(response){console.log(response)}).fail(function(){console.log('error')});
         console.log('here is the theft object', theft);
-        // location.reload()
+        location.reload()
       } else {
         $("#email").css("background-color", "pink"),
         $("#event").css("background-color", "pink"),
