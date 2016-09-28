@@ -4,13 +4,35 @@ input {
 
 
 body {
-  background-image: url("http://4.bp.blogspot.com/-DOK2kla10Uo/VfLyjt81ehI/AAAAAAABQps/3JX7Qblhq50/s1600/tel_aviv.jpg");
+  background-image: url("tlvOp.png");
   background-size: cover;
   max-height: 850px;
   background-repeat: no-repeat;
   padding-bottom: 55px;
 }
 
+.mission {
+   margin-top: 10px;
+   text-align: center;
+   padding-bottom: 10px;
+   color: white;
+   font-weight: bold;
+   text-shadow: 1px 1px 1px black, 2px 2px 2px black, 0 0 10px black;
+   font-family: 'Comfortaa', sans-serif;
+   font-size: 20px;
+}
+
+#rep-btn {
+  font-size: 20px;
+}
+
+#retrieve-event {
+  font-size: 20px;
+}
+
+#claim-event {
+  font-size: 20px;
+}
 
 .logo {
   text-align: center;
@@ -190,10 +212,67 @@ tr:hover {
   margin-left: 41%;
  }
 
+ .borderRadius0 {
+  border-radius: 0;
+ }
+
  .choosePurpose {
   margin-bottom: 15px;
-  margin-left: 32%
+  margin-left: 26%
  }
+
+ .missionTitle {
+  margin-top: 20px;
+ }
+
+ #email {
+  border-radius: 0;
+ }
+ #event {
+  border-radius: 0;
+ }
+ #pac-input {
+  border-radius: 0;
+ }
+ #item {
+  border-radius: 0;
+ }
+ #value {
+  border-radius: 0;
+ }
+ #desc {
+  border-radius: 0;
+ }
+ #date {
+  border-radius: 0;
+ }
+ #photo {
+  border-radius: 0;
+ }
+
+
+ #inputName {
+  border-radius: 0;
+  font-size: 20px;
+ }
+ #inputEmail {
+  border-radius: 0;
+  font-size: 20px;
+ }
+ #inputItem {
+  border-radius: 0;
+  font-size: 20px;
+ }
+ #inputText {
+  border-radius: 0;
+  font-size: 20px;
+ }
+
+ #mainSubmit {
+  font-size: 20px;
+ }
+
+
 
  #pac-input1::-webkit-input-placeholder {
   text-align: center;

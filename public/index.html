@@ -5,31 +5,30 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Farsan|Kaushan+Script" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa|Farsan|Kaushan+Script|Roboto:500" rel="stylesheet">
 
 </head>
 <body ng-controller="cityCtrl">
 
   <h2 class="logo" ng-click="backHome()">Safe<span class="logo green">Location</span></h2>
-  <div ng-show="showMission">
-  <h2 class="mainTitle title"> Our Mission </h2>
-  <div class="mainTitle title text-center" style="max-width:60%;margin-left:20%"><h3> Our dream is to increase the level of safety and security for all those who love the city of Tel Aviv.</h3><h3> We seek your partnership in reporting missing items due to theft or loss.</h3><h3>  We offer a platform to track lost / found items and to raise awareness around petty crime.</h3><h3>  Many of us have experienced a break-in, theft of a bike, wallet or phone.</h3><h3> By posting these events, it warns others of the criminal activity and creates a reliable set of metrics which may be used to push for further social change. </h3>
-  </div>
-  </div>
-
   <div class="choosePurpose" id="retrieve-report">
-    <button class="btn btn-danger" ng-click="showInputBox()">
+    <button id="rep-btn" class="btn btn-danger" ng-click="showInputBox()">
      Report an Event <i class="fa fa-gavel" aria-hidden="true"></i> </button>
     <button id="retrieve-event" class="btn btn-success" ng-click="tableShow1()">
      Show Reported Events <i class="fa fa-calendar" aria-hidden="true"></i> </button>
      <button id="claim-event" class="btn btn-info" ng-click="claimBtn()">
      Claim Item <i class="fa fa-check-square-o" aria-hidden="true"></i> </button>
   </div>
+  <div ng-show="showMission">
+  <h2 class="title missionTitle"> Our Mission </h2>
+  <div class="mission" style="max-width:70%;margin-left:15%"><p>Our dream is to improve the degree of safety and security for all those who love the city of Tel Aviv. Many of us have experienced a break-in, theft of a bike, wallet or phone. By posting events, you warn others of the criminal activity and create a reliable set of metrics which may be used to trigger social change. With sufficient entries, we can begin sending notifications to alert people of events in their area. We seek your partnership in increasing the level of safety in Tel Aviv.</p>
+  </div>
+  </div>
+
 
     <section class="contactUs" ng-show="showContact">
-        <div class='col-xl-12 title text-center' ng-show="viewContact">
-          <h1 ng-click="test()">Claim Item Form:</h1>
+        <div class='col-xl-12 title text-center' style="margin-top:55px;" ng-show="viewContact">
+          <h1 ng-click="test()">Claim Form:</h1>
         </div>
 
       <div class='mainForm' ng-show="viewContact">
@@ -50,18 +49,20 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
-            <input type="text" class="form-control" id="inputText" placeholder="Enter Info for your Claim" ng-model="contactText" required>
+            <textarea type="text" placeholder="Enter Info for your Claim" class="text-center form-control" rows="3" id="inputText" ng-model="contactText"></textarea>
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-12" style="margin-left:45%">
-            <button type="submit" class="btn btn-info" ng-click="addForm()">Make a Claim</button>
+          <div class="col-sm-12" style="margin-left:43%">
+            <button type="submit" class="btn btn-info" ng-click="addForm() " style="font-size:20px;">Make a Claim</button>
           </div>
         </div>
       </div>
 
       <div class="adminLogin">
-        <h4 class="col-sm-12 text-center title adminlogin" ng-click="adminLogClick()" ng-show="viewContact"> Admin Login </h4>
+        <div class="col-sm-12" style="margin-left:45%; font-size: 20px; margin-top:35px;">
+        <button class="btn btn-default" ng-click="adminLogClick()" ng-show="viewContact" style="font-size: 15px;"> Admin Login </button>
+        </div>
         <div class="form-group">
           <div class="col-sm-12" ng-show="admin123">
             <input class="col-sm-offset-4 col-sm-2" type="text" class="form-control" id="adminid" placeholder="enter ID" ng-model="adminid" required>
@@ -105,7 +106,7 @@
 
 
   <div class="container col-md-6" style="opacity:{{px}};">
-    <h2 class="mapTitle text-center"> <span class="tm logo"> Safe<span class="tm logo green">Location</span> </span>  Live Map </h2>
+    <h2 class="mapTitle text-center"> Live Map </h2>
     
     <input id="pac-input1" style="width:200px; height:30px; margin-top:10px;" class="controls" type="text" placeholder="SearchLocation">
       <div id="map1"></div>
@@ -145,7 +146,7 @@
             <input id="desc" type="text" ng-model="desc" placeholder="Optional - Any additional details?" class="form-control">
             <input id="photo" type="text" placeholder="Optional - Enter image URL" class="form-control">
               <div style="text-align:center;">
-                <button type="submit" class="submit-theft btn btn-danger" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
+                <button id="mainSubmit" type="submit" class="submit-theft btn btn-danger" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
             
               </div>
           </div>  
@@ -161,8 +162,8 @@
     <section ng-show="tableShow" class="list col-md-6">
 
     <div class="col-sm-12 searchTitles">
-      <h2 class="font30 logo text-center searchLocator col-sm-6">Search<span class="font30 logo green">Locator:</span></h2>
-      <input type="text" class="dataSearchIn" id="databaseSearch" placeholder="Search Reported Events" ng-model="aSearch">
+      <h2 class="mainTitle title col-sm-6" style="margin-bottom: 2px; margin-top:0px;">Reported Events</h2>
+      <input type="text" class="dataSearchIn col-sm-6" id="databaseSearch" placeholder="Search Reported Events" ng-model="aSearch" style="border-radius: 0;">
     </div>
 
     <table class="table table-f">
