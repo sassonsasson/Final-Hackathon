@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
-            <input type="text" class="form-control" id="inputItem" placeholder="What Item do you want to Claim?" ng-model="contactItem" required>
+            <input type="text" class="form-control" id="inputItem" placeholder="Enter Item ID" ng-model="contactItem" required>
           </div>
         </div>
         <div class="form-group">
@@ -82,8 +82,8 @@
                         <tr>
                           <th>Email</th>
                           <th>Name</th>
-                          <th>Item</th>
                           <th>Text</th>
+                          <th>Item ID</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -167,6 +167,7 @@
 
     <table class="table table-f">
       <tr>
+        <th>ID</th>
         <th>Date</th>
         <th>Location</th>
         <th>Item</th>
@@ -175,12 +176,14 @@
         <th>Description</th>
       </tr>
         <tr ng-repeat="entry in data | orderBy: 'Date' | filter:aSearch">
+          <td>{{entry._id.substring(0, 5)}}</td>
           <td>{{entry.Date}}</td>
-          <td>{{entry.Location}}</td>
+          <td>{{entry.Location.substring(0, 20)}}</td>
           <td>{{entry.Item}}</td>
           <td>{{entry.Event}}</td>
           <td>{{entry.Value}}</td>
           <td>{{entry.Desc}}</td>
+
       </tr>
      
     </table>

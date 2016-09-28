@@ -93,10 +93,13 @@ function initialize(condition) {
       });
     }
   }
+
+  var sCount = 0;
+
     $('.submit-theft').on('click', function(){
 
       if($('#email').val() !== '' && $('#event :selected').text() !== '- Select Event -' && $('#date').val() !== ''){
-
+        sCount += 1;
         var theft = {
           Email: $('#email').val(),
           Item: $('#item :selected').text(),
@@ -118,10 +121,10 @@ function initialize(condition) {
           "'max-height:150px;max-width:150px;"+ "' "+
           "src='"+$('#photo').val()+"'></div>"
         };
-        
+        console.log(theft)
         $.post( "/theft", theft).done(function(response){console.log(response)}).fail(function(){console.log('error')});
         console.log('here is the theft object', theft);
-        location.reload()
+        // location.reload()
       } else {
         $("#email").css("background-color", "pink"),
         $("#event").css("background-color", "pink"),
@@ -221,6 +224,7 @@ var popdesc = [];
         for(var i=0; i<response.length; i++){
           spot.push(response[i].Location);
           popdesc.push(response[i].Popup);
+          console.log(response)
         }
      
       })
