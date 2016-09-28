@@ -176,7 +176,7 @@
         <th>Description</th>
       </tr>
         <tr ng-repeat="entry in data | orderBy: 'Date' | filter:aSearch">
-          <td>{{entry._id.substring(20, )}}</td>
+          <td>{{entry._id.substring(20, 24)}}</td>
           <td>{{entry.Date}}</td>
           <td>{{entry.Location.substring(0, 20)}}</td>
           <td>{{entry.Item}}</td>
