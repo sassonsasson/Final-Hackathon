@@ -224,7 +224,6 @@ var popdesc = [];
         for(var i=0; i<response.length; i++){
           spot.push(response[i].Location);
           popdesc.push(response[i].Popup);
-          console.log(response)
         }
      
       })

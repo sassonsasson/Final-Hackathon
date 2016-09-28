@@ -1,5 +1,4 @@
 app.controller('cityCtrl', function($scope, items, $http, $document){
-  console.log('should see this log on page load up')
   $scope.list = items.things;
   $scope.event = items.typeSend;
 
