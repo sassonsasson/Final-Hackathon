@@ -11,6 +11,7 @@ body {
   padding-bottom: 55px;
 }
 
+
 .logo {
   text-align: center;
   font-family: 'Kaushan Script', cursive;
@@ -191,7 +192,7 @@ tr:hover {
 
  .choosePurpose {
   margin-bottom: 15px;
-  margin-left: 38.6%
+  margin-left: 32%
  }
 
  #pac-input1::-webkit-input-placeholder {

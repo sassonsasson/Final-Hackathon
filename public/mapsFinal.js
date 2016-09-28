@@ -127,6 +127,15 @@ function initialize(condition) {
         $("#event").css("background-color", "pink"),
         $("#date").css("background-color", "pink"),
         $("#pac-input").css("background-color", "pink");
+        if($('#email').val() !== ''){
+          $("#email").css("background-color", "lightgreen")
+        } if($('#pac-input').val() !== ''){
+          $("#pac-input").css("background-color", "lightgreen")
+        } if($('#event :selected').text() !== '- Select Event -'){
+          $("#event").css("background-color", "lightgreen")
+        } if($('#date').val() !== ''){
+          $("#date").css("background-color", "lightgreen")
+        }
       }
 
 

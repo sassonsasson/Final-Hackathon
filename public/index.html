@@ -17,13 +17,92 @@
   <div class="mainTitle title text-center" style="max-width:60%;margin-left:20%"><h3> Our dream is to increase the level of safety and security for all those who love the city of Tel Aviv.</h3><h3> We seek your partnership in reporting missing items due to theft or loss.</h3><h3>  We offer a platform to track lost / found items and to raise awareness around petty crime.</h3><h3>  Many of us have experienced a break-in, theft of a bike, wallet or phone.</h3><h3> By posting these events, it warns others of the criminal activity and creates a reliable set of metrics which may be used to push for further social change. </h3>
   </div>
   </div>
+
   <div class="choosePurpose" id="retrieve-report">
     <button class="btn btn-danger" ng-click="showInputBox()">
      Report an Event <i class="fa fa-gavel" aria-hidden="true"></i> </button>
     <button id="retrieve-event" class="btn btn-success" ng-click="tableShow1()">
      Show Reported Events <i class="fa fa-calendar" aria-hidden="true"></i> </button>
-   
+     <button id="claim-event" class="btn btn-info" ng-click="claimBtn()">
+     Claim Item <i class="fa fa-check-square-o" aria-hidden="true"></i> </button>
   </div>
+
+    <section class="contactUs" ng-show="showContact">
+        <div class='col-xl-12 title text-center' ng-show="viewContact">
+          <h1 ng-click="test()">Claim Item Form:</h1>
+        </div>
+
+      <div class='mainForm' ng-show="viewContact">
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+            <input type="text" class="form-control" id="inputName" placeholder="Enter Your Name" ng-model="contactName" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Enter Your Email" ng-model='contactEmail' required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+            <input type="text" class="form-control" id="inputItem" placeholder="What Item do you want to Claim?" ng-model="contactItem" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-4 col-sm-offset-4">
+            <input type="text" class="form-control" id="inputText" placeholder="Enter Info for your Claim" ng-model="contactText" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-12" style="margin-left:45%">
+            <button type="submit" class="btn btn-info" ng-click="addForm()">Make a Claim</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="adminLogin">
+        <h4 class="col-sm-12 text-center title adminlogin" ng-click="adminLogClick()" ng-show="viewContact"> Admin Login </h4>
+        <div class="form-group">
+          <div class="col-sm-12" ng-show="admin123">
+            <input class="col-sm-offset-4 col-sm-2" type="text" class="form-control" id="adminid" placeholder="enter ID" ng-model="adminid" required>
+            <input class="col-sm-2" type="password" class="form-control" id="adminpass" placeholder="enter Password" ng-model="adminpass" required> 
+            <button class="col-sm-1" type="submit" class="btn btn-default logbtn" ng-click="adminLog()">login</button>
+          </div>
+        </div>
+      </div>
+
+      <div class='mainAdminPage text-center' ng-show="adminCode">
+          <div class='databaseFolder col-sm-12'>
+            <h1 class='logo'> ADMIN PAGE </h1>
+            <input type="text" class="form-control dataSearchIn" style="max-width:200px; margin-left: 42%; margin-right: 40%;" id="databaseSearch" placeholder="Search Data Keyword" ng-model="aSearch">
+            <button type="submit" class="btn btn-default" ng-click="searchDB()">Search</button>
+              <div class="databaseLog">
+                    <table class="table text-left">
+                      <thead>
+                        <tr>
+                          <th>Email</th>
+                          <th>Name</th>
+                          <th>Item</th>
+                          <th>Text</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="data in dataBase | filter:aSearch">
+                          <td>{{data.email}}</td>
+                          <td>{{data.name}}</td>
+                          <td>{{data.item}}</td>
+                          <td>{{data.text}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+              </div>
+
+          </div>
+
+      </div>
+    </section>
+      
+
 
   <div class="container col-md-6" style="opacity:{{px}};">
     <h2 class="mapTitle text-center"> <span class="tm logo"> Safe<span class="tm logo green">Location</span> </span>  Live Map </h2>
@@ -62,9 +141,9 @@
                   <option class="item"> Other </option>
                 </select>
               </div>
-            <input type="text" id="value" placeholder="What is the ILS value?" class="form-control">
-            <input id="desc" type="text" ng-model="desc" placeholder="Any additional details?" class="form-control">
-            <input id="photo" type="text" placeholder="enter image URL" class="form-control">
+            <input type="text" id="value" placeholder="Optional - What is the ILS value?" class="form-control">
+            <input id="desc" type="text" ng-model="desc" placeholder="Optional - Any additional details?" class="form-control">
+            <input id="photo" type="text" placeholder="Optional - Enter image URL" class="form-control">
               <div style="text-align:center;">
                 <button type="submit" class="submit-theft btn btn-danger" ng-click="submitForm()" onclick="this.form.reset();">Submit</button>
             
@@ -78,10 +157,6 @@
   </div>
 
   <a name="list"></a>
-
-
-
-  <!-- <div class="fb-share-button" data-href="http://locationer.herokuapp.com/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocationer.herokuapp.com%2F&amp;src=sdkpreparse">Share</a></div> -->
 
     <section ng-show="tableShow" class="list col-md-6">
 
@@ -107,19 +182,12 @@
           <td>{{entry.Value}}</td>
           <td>{{entry.Desc}}</td>
       </tr>
-      
+     
     </table>
-  </section>
 
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=934868963323506";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-  </script>
+
+
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
   <script src="https://www.gstatic.com/charts/loader.js"></script>

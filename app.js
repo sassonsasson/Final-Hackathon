@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Theft = require('./mongoose');
+var Form = require("./form.js");
 
 mongoose.connect(process.env.MONGOLAB_BROWN_URI ||'mongodb://localhost/safe_location');
 
@@ -31,6 +32,22 @@ app.post('/theft', function(req, res) {
   res.end();
 
 });
+
+app.get('/admin', function (req, res) {
+  
+  Form.find().exec(function(err, rel){
+    res.json(rel)
+  })
+
+});
+
+app.post('/admin',function(req,res){
+  var newForm = new Form(req.body);
+  
+  newForm.save();
+//respond back
+  res.end();
+})
 
 app.get('/theft', function(req, res) {
   console.log('got to get');
